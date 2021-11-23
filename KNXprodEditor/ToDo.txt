@@ -1,0 +1,3 @@
+ToDo:
+
+* EEPROM Tabelle verbessern, aktuell keine Unterteilung bei gleichen Parameternamen nacheinander, keine Sichtbarkeit von Parametern über mehrere Bytes

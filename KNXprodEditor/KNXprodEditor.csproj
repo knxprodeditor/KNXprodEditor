@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F36DE5D-C47B-4B7F-8174-D3B2C694B191}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>knxprod_ns</RootNamespace>
+    <AssemblyName>KNXprodEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>zoom_layer.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="KnxprodHelperClasses\ParameterHelper.cs" />
+    <Compile Include="GeneralHelperClasses\DirectoryHelper.cs" />
+    <Compile Include="BasicClasses\Config.cs" />
+    <Compile Include="KnxprodHelperClasses\DynamicSectionSearch.cs" />
+    <Compile Include="GeneralHelperClasses\TreeViewArrayFunctions.cs" />
+    <Compile Include="GeneralHelperClasses\ObjectFunctions.cs" />
+    <Compile Include="Gui\ApplicationProgramGui\AddressTableGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\AddressTableGui.Designer.cs">
+      <DependentUpon>AddressTableGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui.Designer.cs">
+      <DependentUpon>ApplicationProgramGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\AssociationTableGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\AssociationTableGui.Designer.cs">
+      <DependentUpon>AssociationTableGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\CodeGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\CodeGui.Designer.cs">
+      <DependentUpon>CodeGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ComObjectsGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ComObjectsGui.Designer.cs">
+      <DependentUpon>ComObjectsGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ContextMenuHandler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ContextMenuHandler.Designer.cs">
+      <DependentUpon>ContextMenuHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationChannelGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationChannelGui.Designer.cs">
+      <DependentUpon>ApplicationChannelGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationGui.Designer.cs">
+      <DependentUpon>ApplicationGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabControl.Designer.cs">
+      <DependentUpon>DynamicTabControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicMemoryTable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicMemoryTable.Designer.cs">
+      <DependentUpon>DynamicMemoryTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTreeViewGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTreeViewGui.Designer.cs">
+      <DependentUpon>DynamicTreeViewGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AppParameterGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AppParameterGui.Designer.cs">
+      <DependentUpon>AppParameterGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AssignGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AssignGui.Designer.cs">
+      <DependentUpon>AssignGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseGui.Designer.cs">
+      <DependentUpon>ChannelChooseGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseWhenGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseWhenGui.Designer.cs">
+      <DependentUpon>ChannelChooseWhenGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectGui.Designer.cs">
+      <DependentUpon>ComObjectGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseGui.Designer.cs">
+      <DependentUpon>ComObjectParameterChooseGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseWhenGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseWhenGui.Designer.cs">
+      <DependentUpon>ComObjectParameterChooseWhenGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefGui.Designer.cs">
+      <DependentUpon>ComObjectRefGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefRefGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefRefGui.Designer.cs">
+      <DependentUpon>ComObjectRefRefGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicGuiMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicGuiMain.Designer.cs">
+      <DependentUpon>DynamicGuiMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterBlockGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterBlockGui.Designer.cs">
+      <DependentUpon>ComObjectParameterBlockGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefGui.Designer.cs">
+      <DependentUpon>ParameterRefGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterSeparatorGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterSeparatorGui.Designer.cs">
+      <DependentUpon>ParameterSeparatorGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefRefGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefRefGui.Designer.cs">
+      <DependentUpon>ParameterRefRefGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\UnionParameterGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\UnionParameterGui.Designer.cs">
+      <DependentUpon>UnionParameterGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\LoadProceduresGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\LoadProceduresGui.Designer.cs">
+      <DependentUpon>LoadProceduresGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\OptionsGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\OptionsGui.Designer.cs">
+      <DependentUpon>OptionsGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ParameterGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ParameterGui.Designer.cs">
+      <DependentUpon>ParameterGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ParameterTypesGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\ApplicationProgramGui\ParameterTypesGui.Designer.cs">
+      <DependentUpon>ParameterTypesGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\CatalogGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\CatalogGui.Designer.cs">
+      <DependentUpon>CatalogGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gui\HardwareGui.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Gui\HardwareGui.Designer.cs">
+      <DependentUpon>HardwareGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KnxprodHelperClasses\DynamicTreeViewGenerator.cs" />
+    <Compile Include="KnxprodHelperClasses\HandleDatapointTypes.cs" />
+    <Compile Include="KnxprodHelperClasses\KnxMasterLanguage.cs" />
+    <Compile Include="KnxprodHelperClasses\DynamicSectionEdit.cs" />
+    <Compile Include="GeneralHelperClasses\ComboBoxItem.cs" />
+    <Compile Include="GeneralHelperClasses\DeserializeBase64.cs" />
+    <Compile Include="Gui\KNXprodEditorMainGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gui\KNXprodEditorMainGui.Designer.cs">
+      <DependentUpon>KNXprodEditorMainGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralHelperClasses\ArrayFunctions.cs" />
+    <Compile Include="KnxprodHelperClasses\HandleGuiDataTypes.cs" />
+    <Compile Include="KnxprodHelperClasses\HandleKnxDataTypes.cs" />
+    <Compile Include="KnxprodHelperClasses\HandleParNames.cs" />
+    <Compile Include="KnxprodHelperClasses\KNXprodToCHeader.cs" />
+    <Compile Include="KnxprodHelperClasses\KNXprodFile.cs" />
+    <Compile Include="KnxprodHelperClasses\knxprod.cs" />
+    <Compile Include="KnxprodHelperClasses\LanguageProcessing.cs" />
+    <Compile Include="BasicClasses\Program.cs" />
+    <Compile Include="KnxprodHelperClasses\MemoryTable.cs" />
+    <Compile Include="KnxprodHelperClasses\WhenTestHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="BasicClasses\Settings.cs" />
+    <Compile Include="GeneralHelperClasses\ToNullString.cs" />
+    <Compile Include="GeneralHelperClasses\TreeNodeSorter.cs" />
+    <Compile Include="UserRAM\UserRamEdit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Gui\KNXprodEditorMainGui.resx">
+      <DependentUpon>KNXprodEditorMainGui.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\AddressTableGui.resx">
+      <DependentUpon>AddressTableGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui.resx">
+      <DependentUpon>ApplicationProgramGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\AssociationTableGui.resx">
+      <DependentUpon>AssociationTableGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\CodeGui.resx">
+      <DependentUpon>CodeGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\ComObjectsGui.resx">
+      <DependentUpon>ComObjectsGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\ContextMenuHandler.resx">
+      <DependentUpon>ContextMenuHandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicGuiMain.resx">
+      <DependentUpon>DynamicGuiMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicMemoryTable.resx">
+      <DependentUpon>DynamicMemoryTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationChannelGui.resx">
+      <DependentUpon>ApplicationChannelGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ApplicationGui.resx">
+      <DependentUpon>ApplicationGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabControl.resx">
+      <DependentUpon>DynamicTabControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTreeViewGui.resx">
+      <DependentUpon>DynamicTreeViewGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AppParameterGui.resx">
+      <DependentUpon>AppParameterGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\AssignGui.resx">
+      <DependentUpon>AssignGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseGui.resx">
+      <DependentUpon>ChannelChooseGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ChannelChooseWhenGui.resx">
+      <DependentUpon>ChannelChooseWhenGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectGui.resx">
+      <DependentUpon>ComObjectGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterBlockGui.resx">
+      <DependentUpon>ComObjectParameterBlockGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseGui.resx">
+      <DependentUpon>ComObjectParameterChooseGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectParameterChooseWhenGui.resx">
+      <DependentUpon>ComObjectParameterChooseWhenGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefGui.resx">
+      <DependentUpon>ComObjectRefGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ComObjectRefRefGui.resx">
+      <DependentUpon>ComObjectRefRefGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefGui.resx">
+      <DependentUpon>ParameterRefGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterSeparatorGui.resx">
+      <DependentUpon>ParameterSeparatorGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\ParameterRefRefGui.resx">
+      <DependentUpon>ParameterRefRefGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\DynamicGui\DynamicTabs\UnionParameterGui.resx">
+      <DependentUpon>UnionParameterGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\LoadProceduresGui.resx">
+      <DependentUpon>LoadProceduresGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\OptionsGui.resx">
+      <DependentUpon>OptionsGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\ParameterGui.resx">
+      <DependentUpon>ParameterGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\ApplicationProgramGui\ParameterTypesGui.resx">
+      <DependentUpon>ParameterTypesGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\CatalogGui.resx">
+      <DependentUpon>CatalogGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gui\HardwareGui.resx">
+      <DependentUpon>HardwareGui.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ToDo.txt" />
+    <Content Include="zoom_layer.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 und x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
