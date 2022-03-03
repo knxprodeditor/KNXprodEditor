@@ -520,7 +520,17 @@ namespace knxprod_ns
                 }
                 else
                 {
-                    newAbsCodeSegmentId = ((comboBoxParParMemCodeSegment.SelectedItem as ComboBoxItem).Tag as ApplicationProgramStatic_tCodeAbsoluteSegment).Id;
+                    var tag = (comboBoxParParMemCodeSegment.SelectedItem as ComboBoxItem).Tag;
+                    if(tag is ApplicationProgramStatic_tCodeRelativeSegment)
+                    {
+                        newAbsCodeSegmentId = (tag as ApplicationProgramStatic_tCodeRelativeSegment).Id;
+                    } else if(tag is ApplicationProgramStatic_tCodeAbsoluteSegment)
+                    {
+                        newAbsCodeSegmentId = (tag as ApplicationProgramStatic_tCodeAbsoluteSegment).Id;
+                    } else
+                    {
+                        throw new ArgumentException("Selected code segmet is neither tCodeAbsoluteSegment nor tCodeRelativeSegment");
+                    }
                     ApplicationProgramStatic_tParameter aktParameter = new ApplicationProgramStatic_tParameter();
                     if (TreeViewParameter.SelectedNode != null)
                     {
