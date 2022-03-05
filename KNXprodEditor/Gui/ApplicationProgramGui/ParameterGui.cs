@@ -706,18 +706,31 @@ namespace knxprod_ns
                 }
                 else
                 {
-                    newAbsCodeSegment = (comboBoxParUnionParUnionMemCodeSegment.SelectedItem as ComboBoxItem).Tag as ApplicationProgramStatic_tCodeAbsoluteSegment;
+                    var tag = (comboBoxParUnionParUnionMemCodeSegment.SelectedItem as ComboBoxItem).Tag;
+                    var codeSegmentId = null;
+                    // Find ID for relative or absolute code segment
+                    if(tag is ApplicationProgramStatic_tCodeRelativeSegment)
+                    {
+                        codeSegmentId = (tag as ApplicationProgramStatic_tCodeRelativeSegment).Id;
+                    } else if(tag is ApplicationProgramStatic_tCodeAbsoluteSegment)
+                    {
+                        codeSegmentId = (tag as ApplicationProgramStatic_tCodeAbsoluteSegment).Id;
+                    } else
+                    {
+                        throw new ArgumentException("Selected code segment is neither tCodeAbsoluteSegment nor tCodeRelativeSegment");
+                    }
+                    
                     ApplicationProgramStatic_tUnion aktUnion = new ApplicationProgramStatic_tUnion();
                     if (TreeViewParameter.SelectedNode != null)
                     {
                         aktUnion = TreeViewParameter.SelectedNode.Tag as ApplicationProgramStatic_tUnion;
                     }
                     else
-                    {
+                    {newAbsCodeSegment.Id
                         aktUnion = null;
                     }
 
-                    if (CheckIfMemeoryUsed(newAbsCodeSegment.Id, (uint)numericParUnionParUnionMemOffset.Value, (byte)numericParUnionParUnionMemBitOffset.Value, (uint)numericParUnionSizeInBit.Value, aktUnion))
+                    if (CheckIfMemeoryUsed(codeSegmentId, (uint)numericParUnionParUnionMemOffset.Value, (byte)numericParUnionParUnionMemBitOffset.Value, (uint)numericParUnionSizeInBit.Value, aktUnion))
                     {
                         MessageBox.Show("Der Speicherbereich wird bereits von einer anderen Union verwendet", "Speicherbereichsüberschneidung",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
