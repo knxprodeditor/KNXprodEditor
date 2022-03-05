@@ -707,7 +707,7 @@ namespace knxprod_ns
                 else
                 {
                     var tag = (comboBoxParUnionParUnionMemCodeSegment.SelectedItem as ComboBoxItem).Tag;
-                    var codeSegmentId = null;
+                    var codeSegmentId = "";
                     // Find ID for relative or absolute code segment
                     if(tag is ApplicationProgramStatic_tCodeRelativeSegment)
                     {
