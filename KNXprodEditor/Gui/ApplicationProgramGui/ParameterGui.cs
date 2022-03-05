@@ -726,7 +726,7 @@ namespace knxprod_ns
                         aktUnion = TreeViewParameter.SelectedNode.Tag as ApplicationProgramStatic_tUnion;
                     }
                     else
-                    {newAbsCodeSegment.Id
+                    {
                         aktUnion = null;
                     }
 
